@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Semi-Automated FAST Reconciliation for Hyrax Repositories - Open Repositories 2023</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/imported.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+	<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+		<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+			<div class="theme-font-montserrat theme-color-black-blue" style="width: 100%; height: 100%;">
+				<div class="reveal">
+					<div class="slides">
+						<section>
+							<div class="sl-block" data-block-type="text" style="width: 960px; left: 0px; top: 84.75px; height: auto;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h1><span style="font-size:0.9em">Semi-Automated FAST Reconciliation for Hyrax Repositories</span></h1>
+								</div>
+							</div>
+							<div class="sl-block sl-block-group" data-block-type="group" data-name="group-f44894" style="width: auto; height: auto;">
+								<div class="sl-block-content sl-block-group-content" style="transform-origin: 480px 519.25px; z-index: 11;">
+									<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 423.25px; height: auto;">
+										<div class="sl-block-content" style="z-index: 12;">
+											<h3>&nbsp;</h3>
+
+											<p><span style="font-size:0.9em">Senior Developer/Analyst&nbsp; |&nbsp; University of Victoria Libraries </span></p>
+
+											<p><span style="font-size:0.9em">Open Repositories | June 14, 2023</span></p>
+
+											<p><span style="font-size:0.9em">Link to Slides: </span><a href="https://uviclibrary.github.io/OR2023_Dev" target="_blank">uviclibrary.github.io/OR2023_Dev</a></p>
+										</div>
+									</div>
+									<div class="sl-block sl-block-group" data-block-type="group" data-name="group-75ac60" style="width: auto; height: auto;">
+										<div class="sl-block-content sl-block-group-content" style="transform-origin: 472px 486px; z-index: 13;">
+											<div class="sl-block" data-block-type="image" data-name="image-0d26a3" style="width: 37.8222px; height: 37px; left: 517.589px; top: 434.25px; min-width: 1px; min-height: 1px;">
+												<div class="sl-block-content" style="z-index: 14;">
+													<a href="https://github.com/UVicLibrary" target="_blank">
+														<img class="" data-natural-width="230" data-natural-height="225" data-lazy-loaded="" data-src="media/github-mark-white.png">
+													</a>
+												</div>
+											</div>
+											<div class="sl-block" data-block-type="image" data-name="image-4e0fe1" style="width: 40px; height: 40px; left: 567.411px; top: 432.75px; min-width: 1px; min-height: 1px;">
+												<div class="sl-block-content" style="z-index: 15;">
+													<a href="https://twitter.com/TiffChan29" target="_blank">
+														<img class="" data-natural-width="50" data-natural-height="50" data-lazy-loaded="" data-src="media/icons8-twitter-50.png">
+													</a>
+												</div>
+											</div>
+											<div class="sl-block" data-block-type="text" data-name="text-055b3a" style="height: auto; width: 183px; left: 334.589px; top: 433.25px;">
+												<div class="sl-block-content" style="z-index: 16;">
+													<p><span style="font-size:0.9em">Tiffany Chan</span></p>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" style="width: 806px; left: 80px; top: 159px; height: auto;" data-block-id="508d7a1d95ebdd1019106960fb106b84">
+								<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>Some Context</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="width: 759px; left: 103.5px; top: 255px; height: auto;" data-block-id="f033ae101dca822ef5e4d026db114edd">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; line-height: 1.417;" data-has-line-height="">
+									<p>Migrated to <a href="https://hyku.samvera.org/faq.html" target="_blank">Hyku</a> (<a href="https://hyrax.samvera.org/about/" target="_blank">Hyrax</a>-based) from ContentDM</p>
+
+									<p class="fragment" data-fragment-index="0">Decided to use <a href="https://www.oclc.org/research/areas/data-science/fast.html" target="_blank">OCLC FAST</a> (<a href="https://en.wikipedia.org/wiki/Controlled_vocabulary" target="_blank">controlled vocabulary</a>) for several metadata fields</p>
+
+									<p class="fragment" data-fragment-index="1">Textual values converted to URIs whenever possible</p>
+
+									<p class="fragment" data-fragment-index="2">More <a href="http://www.tandfonline.com/doi/full/10.1080/01639374.2023.2204309" target="_blank">details on our metadata migration</a></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-f10840" style="height: auto; width: 650px; left: 158px; top: 70px;">
+								<div class="sl-block-content" style="z-index: 12;">
+									<p><span style="font-size:0.9em">Link to Slides: </span><a href="https://uviclibrary.github.io/OR2023Dev" target="_blank">uviclibrary.github.io/OR2023Dev</a></p>
+								</div>
+							</div>
+						</section>
+						<section data-auto-animate-duration="1.6" data-auto-animate="" data-auto-animate-easing="ease-in">
+							<div class="sl-block" data-block-type="code" data-name="code-d4a723" data-block-id="2a2237aa30a7d4999a2f4b10c3336d3a" style="width: 463.36px; height: 305px; left: 0px; top: 266.75px;">
+								<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 10;" data-code-wrap="true">
+        <pre style="font-size: 18px; line-height: 22px;"><code>"subject_tesim":["http://id.worldcat.org/fast/1050538",
+  "http://id.worldcat.org/fast/78887",
+  "http://id.worldcat.org/fast/2012667",
+  "http://id.worldcat.org/fast/1050534"]
+
+"subject_label_tesim":["Painters--Correspondence",
+  "Orpen, William, Sir, 1878-1931",
+  "Glenavy, Beatrice Moss Campbell, Baroness, 1883-1970",
+  "Painters--Biography"</code></pre>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="image" data-name="image-f60957" data-block-id="4e7314611444d3a826247ffd1e58d336" style="width: 496.64px; height: 258.132px; left: 463.36px; top: 266.75px; min-width: 1px; min-height: 1px;">
+								<div class="sl-block-content" style="z-index: 11;"><img class="" data-natural-width="987" data-natural-height="513" data-lazy-loaded="" src="media/orpen_metadata.jpg"></div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 908px; left: 30.32px; top: 52px;" data-block-id="f73a9b586fb1cd3bd40d8278bd64a74f">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(147, 196, 125);">
+									<h2><span style="font-size:0.7em">How Hyrax handles URIs/Labels in Metadata</span></h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 357px; left: 43px; top: 192px;" data-name="text-7e656c" data-block-id="2830a32bf040186cd6107ee8d03498a0">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(147, 196, 125);">
+									<h3><span style="font-size:0.9em">URIs and Labels</span></h3>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 133px; left: 653.5px; top: 192px;" data-block-id="365a2e3fd0452f4dcac08314d36c7e1c" data-name="text-669087">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; color: rgb(147, 196, 125);">
+									<h3><span style="font-size:0.9em">Labels</span></h3>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-677468" data-block-id="992d225e54ae51e610e2d5d5245f7acd" style="height: auto; width: 463.36px; left: 0px; top: 583.5px;">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;">
+									<p><span style="font-size:0.9em">indexed on the backend</span></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 463.36px; left: 484.32px; top: 534.75px;" data-block-id="d6b2991da1c26c786ca43cde23296270" data-name="text-caebea">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16;">
+									<p><span style="font-size:0.9em">displayed in the interface</span></p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 942.378px; left: 8.811px; top: 157.5px;" data-block-id="4f5242a498531cef8586c75e2203836e">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>New URIs are constantly created</h2>
+								</div>
+							</div>
+
+							<div class="sl-block" data-block-type="text" data-name="text-124535" data-block-id="d60a29a47e71a2905df8b25d515c515d" style="height: auto; width: 745px; left: 107.5px; top: 351.5px;">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="1">
+									<p>We enter data as textual values first,</p>
+
+									<p>then submit a request to OCLC to create/assign URIs</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 902px; left: 29px; top: 285.5px;" data-block-id="ccf2342e70df29b5db1d83fafa2825b0" data-name="text-89ef6c">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+									<p>Many of our subjects/metadata are of especially local interest</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 902px; left: 29px; top: 464.5px;" data-block-id="4f5e74f9e257734d12d74645a6d8eb63" data-name="text-0a5f42">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;" data-fragment-index="2">
+									<p>When FAST approves our request, we need to replace the textual values with the new URI(s)</p>
+								</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 858.351px; left: 50.8245px; top: 273.75px;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>FAST is constantly evolving...</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-039be7" style="height: auto; width: 780px; left: 90px; top: 375.25px;">
+								<div class="sl-block-content" style="z-index: 11;">
+									<h3><span style="font-size:0.9em">Existing URIs can still change</span></h3>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 700px; left: 127.5px; top: 70px;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>Example Changes</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-039be7" style="height: auto; width: 829px; left: 65.5px; top: 190.5px;">
+								<div class="sl-block-content" style="z-index: 11;">
+									<h3><span style="font-size:0.9em">Dates of birth or death are added (for people)</span></h3>
+								</div>
+							</div>
+							<div class="sl-block sl-block-group" data-block-type="group" data-name="group-ffc1af" style="height: auto;">
+								<div class="sl-block-content sl-block-group-content" style="transform-origin: 480px 299.5px; z-index: 12;">
+									<div class="sl-block" data-block-type="text" data-name="text-1e46e8" style="height: auto; width: 600px; left: 140px; top: 280px;">
+										<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
+											<p>Elizabeth II, Queen of Great Britain, 1926 -</p>
+										</div>
+									</div>
+									<div class="sl-block" data-block-type="text" style="height: auto; width: 92px; left: 728px; top: 280px;" data-name="text-e55818">
+										<div class="sl-block-content fragment" style="z-index: 14; color: rgb(147, 196, 125);" data-fragment-index="0">
+											<p>2022</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sl-block sl-block-group" data-block-type="group" data-name="group-f5564b" style="height: auto;">
+								<div class="sl-block-content sl-block-group-content" style="transform-origin: 463px 375.5px; z-index: 15;">
+									<div class="sl-block" data-block-type="text" style="height: auto; width: 541.5px; left: 127.5px; top: 350px;" data-name="text-a80feb">
+										<div class="sl-block-content fragment" style="z-index: 16;" data-fragment-index="1">
+											<h3><span style="font-size:0.9em">Headings can be deprecated </span></h3>
+										</div>
+									</div>
+									<div class="sl-block" data-block-type="text" style="height: auto; width: 144px; left: 654.5px; top: 350px;" data-name="text-d3285d">
+										<div class="sl-block-content fragment" style="z-index: 17; color: rgb(147, 196, 125);" data-fragment-index="2">
+											<h3><span style="font-size:0.9em">or split</span></h3>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" data-name="text-dfebf0" style="height: auto; width: 600px; left: 174px; top: 432.5px;">
+								<div class="sl-block-content fragment" style="z-index: 18;" data-fragment-index="2">
+									<p><span style="font-size:0.9em">Fatigue Testing</span></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="line" data-name="line-609e60" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 349px; top: 490.5px;">
+								<div class="sl-block-content fragment" data-line-x1="0" data-line-y1="89" data-line-x2="71" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;" data-line-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="71" height="89" viewBox="0 0 71 89">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0.5" y1="89.5" x2="71.5" y2="0.5"></line>
+									<line class="line-element" stroke="#ffffff" stroke-width="3" x1="0.5" y1="89.5" x2="71.5" y2="0.5"></line>
+								</svg></div>
+							</div>
+							<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 0px; min-height: 0px; left: 527.5px; top: 490px;" data-name="line-61d8ef">
+								<div class="sl-block-content fragment" data-line-x1="81.5" data-line-y1="89" data-line-x2="0" data-line-y2="0" data-line-color="#ffffff" data-line-start-type="none" data-line-end-type="none" style="z-index: 20;" data-line-width="3px" data-fragment-index="2"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid" width="81.5" height="89" viewBox="0 0 81.5 89">
+									<line stroke="rgba(0,0,0,0)" stroke-width="15" x1="82" y1="89.5" x2="0.5" y2="0.5"></line>
+									<line class="line-element" stroke="#ffffff" stroke-width="3" x1="82" y1="89.5" x2="0.5" y2="0.5"></line>
+								</svg></div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 393px; left: 65.5px; top: 597.5px;" data-name="text-d9233c">
+								<div class="sl-block-content fragment" style="z-index: 21; color: rgb(147, 196, 125);" data-fragment-index="2">
+									<p><span style="font-size:0.9em">Fatigue Testing Machines</span></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 308px; left: 512px; top: 597.5px;" data-name="text-3eaaf8">
+								<div class="sl-block-content fragment" style="z-index: 22; color: rgb(147, 196, 125);" data-fragment-index="2">
+									<p><span style="font-size:0.9em">Materials Fatigue</span></p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 851px; left: 46.5px; top: 50.6689px;" data-block-id="1af0836095ecda9512f5aacfebeb8f8d">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>The Problem of Maintenance in Hyrax-based Systems</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 700px; left: 130px; top: 375.169px;" data-name="text-4c0b09" data-block-id="16fe07ae92ab2c3589c8d262d5dfed0a">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-fragment-index="1">
+									<h3 style="text-align:left"><span style="font-size:0.9em">No easy way to update automatically</span></h3>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 639.879px; left: 152.06px; top: 436.371px;" data-name="text-6e0c5d" data-block-id="49221809b67cf2880adff7faa4785c69">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="2">
+									<p class="fragment" data-fragment-index="0">Hyrax cannot use the MARC file to update</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 841.378px; left: 51.311px; top: 236.5px;" data-block-id="5fb72424e79f6aefe156d7ed47c4b696" data-name="text-deae37">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+									<h3><span style="font-size:0.9em">OCLC doesn't contact you when they add a URI or heading that you requested</span></h3>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 872.439px; left: 35.7805px; top: 548.331px;" data-block-id="714289827c7b0f49849b730486f11a36" data-name="text-24f907">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" data-fragment-index="4">
+									<h3><span style="font-size:0.9em">Hard to search for the same value in multiple fields using the interface</span></h3>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 172px; top: 475.371px;" data-name="text-0f180b" data-block-id="9b0f10f09dc308af63af818d7147f985">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15;" data-fragment-index="3">
+									<p>There is no API (at least not yet)</p>
+								</div>
+							</div>
+						</section>
+						<section class="stack">
+							<section>
+								<div class="sl-block" data-block-type="iframe" data-name="iframe-4a56f0" style="width: 960px; height: 700px; left: 0px; top: 0px;">
+									<div class="sl-block-content" style="z-index: 10; border-width: 1px;"><iframe allowfullscreen="" allow="fullscreen; accelerometer; geolocation; gyroscope; camera; encrypted-media; microphone; midi" sandbox="allow-forms allow-scripts allow-popups allow-same-origin allow-pointer-lock allow-presentation" data-preload="true" data-lazy-loaded="" data-src="https://fast.oclc.org/fastChanges/"></iframe></div>
+								</div>
+							</section>
+							<section>
+								<div class="sl-block" data-block-type="image" style="width: 907.824px; height: 700px; left: 26.088px; top: 0px;" data-name="image-4bee4b">
+									<div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1210" data-natural-height="933" data-lazy-loaded="" data-src="media/fast_changes.jpg"></div>
+								</div>
+							</section>
+						</section>
+						<section class="stack">
+							<section>
+								<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 811.412px; left: 77.9233px; top: 140px;">
+									<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+										<h2>FAST Updater</h2>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 815.757px; left: 70.6646px; top: 521px;" data-name="text-deae37">
+									<div class="sl-block-content fragment" style="z-index: 11;" data-fragment-index="2">
+										<p><span style="font-size:1.0em">Periodic automatic updates via Sidekiq</span></p>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 815.757px; left: 70.6646px; top: 257px;" data-name="text-41c6d5">
+									<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+										<p>Download recent Microsoft Excel spreadsheet(s)</p>
+
+										<p>(You can specify a date range)</p>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 815.757px; left: 70.6646px; top: 373px;" data-name="text-4a4d32">
+									<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1">
+										<p>Parse the spreadsheets and categorize changes according to type (New heading, modified heading, obsolete/deprecated, split)</p>
+									</div>
+								</div>
+							</section>
+							<section>
+								<div class="sl-block" data-block-type="code" data-name="code-d4a723" style="width: 446.299px; height: 207.946px; left: 16.8501px; top: 320.757px;">
+									<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 10;" data-code-wrap="true">
+                            <pre style="font-size: 18px; line-height: 22px;"><code>"subject_tesim":[
+  "Spreitz, Karl, 1927-",
+  "http://id.worldcat.org/fast/837358"
+],
+
+"subject_label_tesim":[
+  "Spreitz, Karl, 1927-",
+  "Boys"
+],</code></pre>
+									</div>
+								</div>
+
+								<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 700px; left: 130px; top: 114.696px;">
+									<div class="sl-block-content" style="z-index: 11; color: rgb(147, 196, 125);">
+										<h2>New Headings</h2>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 133px; left: 160px; top: 254.696px;" data-name="text-7e656c">
+									<div class="sl-block-content" style="z-index: 12; color: rgb(147, 196, 125);">
+										<h3>Before</h3>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 133px; left: 640px; top: 254.696px;" data-name="text-669087">
+									<div class="sl-block-content" style="z-index: 13; color: rgb(147, 196, 125);">
+										<h3>After</h3>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="code" style="width: 446.299px; height: 207.946px; left: 496.851px; top: 320.757px;" data-name="code-ffa3c5">
+									<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 14;" data-code-wrap="true">
+                            <pre style="font-size: 18px; line-height: 22px;"><code>"subject_tesim":[
+  "http://id.worldcat.org/fast/2013151",
+  "http://id.worldcat.org/fast/837358"
+],
+
+"subject_label_tesim":[
+  "Spreitz, Karl, 1927-",
+  "Boys"
+],</code></pre>
+									</div>
+								</div>
+							</section>
+							<section>
+
+								<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 700px; left: 130px; top: 114.696px;">
+									<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+										<h2>Modified Headings</h2>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 133px; left: 160px; top: 254.696px;" data-name="text-7e656c">
+									<div class="sl-block-content" style="z-index: 11; color: rgb(147, 196, 125);">
+										<h3>Before</h3>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="text" style="height: auto; width: 133px; left: 640px; top: 254.696px;" data-name="text-669087">
+									<div class="sl-block-content" style="z-index: 12; color: rgb(147, 196, 125);">
+										<h3>After</h3>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="code" style="width: 446.299px; height: 207.946px; left: 16.8505px; top: 316.027px;" data-name="code-ffa3c5">
+									<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 13;" data-code-wrap="true">
+                            <pre style="font-size: 18px; line-height: 22px;"><code>"subject_tesim":[
+  "http://id.worldcat.org/fast/2013151",
+  "http://id.worldcat.org/fast/837358"
+],
+
+"subject_label_tesim":[
+  "Spreitz, Karl, 1927-",
+  "Boys"
+],</code></pre>
+									</div>
+								</div>
+								<div class="sl-block" data-block-type="code" style="width: 446.299px; height: 207.946px; left: 496.851px; top: 316.027px;" data-name="code-82d30e">
+									<div class="sl-block-content notranslate" data-highlight-theme="monokai" data-code-frame="none" style="z-index: 14;" data-code-wrap="true">
+                            <pre style="font-size: 18px; line-height: 22px;"><code>"subject_tesim":[
+  "http://id.worldcat.org/fast/2013151",
+  "http://id.worldcat.org/fast/837358"
+],
+
+"subject_label_tesim":[
+  "Spreitz, Karl, 1927-2016",
+  "Boys"
+],</code></pre>
+									</div>
+								</div>
+							</section>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 811.412px; left: 74.294px; top: 120.841px;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>Automatic Changes</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 757.879px; left: 95.974px; top: 232.5px;" data-name="text-24f907">
+								<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+									<h3><span style="font-size:0.9em">New Headings</span></h3>
+
+									<p><span style="font-size:1.0em">Search the repository for items with fields containing the textual value, then replace them with the URI</span></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 757.879px; left: 95.974px; top: 402.159px;" data-name="text-2b37f0">
+								<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1">
+									<h3><span style="font-size:0.9em">Modified Headings</span></h3>
+
+									<p><span style="font-size:1.0em">Search the repository for the URI and reindex affected items, using Hyrax (and associated gems) to fetch and index the updated label</span></p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 848.446px; left: 55.777px; top: 175px;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>Deprecated or Split Headings</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 180px; top: 276.345px;" data-name="text-846ca1">
+								<div class="sl-block-content" style="z-index: 11;">
+									<p>Require manual intervention</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 732.564px; left: 113.718px; top: 342.345px;" data-name="text-3182aa">
+								<div class="sl-block-content fragment" style="z-index: 12;" data-fragment-index="0">
+									<p>Email a configured address describing changes and suggestions (if any)</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 766.282px; left: 96.859px; top: 447px;" data-name="text-0ae68a">
+								<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="1">
+									<p>Staff can use a custom interface to search for and replace the old URI with new one(s)</p>
+								</div>
+							</div>
+						</section>
+						<section data-background-video="media/dashboard.mp4"></section>
+						<section data-background-video="media/search_preview.mp4"></section>
+						<section data-background-video="media/select_replacement.mp4"></section>
+						<section data-background="media/previous_changes.jpg"></section>
+						<section>
+							<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 212.5px; height: auto;" data-block-id="7ec09ed9767dbfcc05a7b87837766ed2">
+								<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>What's Next?</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 189px; top: 398px;" data-name="text-9a98ed" data-block-id="b6c5b55f6044d649c2a49d04b422a653">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; color: rgb(255, 255, 255);" data-fragment-index="1">
+									<p><a href="https://github.com/UVicLibrary/fast_update" target="_blank">Make it a gem</a></p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 600px; left: 189px; top: 451px;" data-block-id="3923ad2202344182545e813ce0f269a2" data-name="text-96f9dc">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; color: rgb(255, 255, 255);" data-fragment-index="2">
+									<p>FAST Changes API Survey</p>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 698px; left: 131px; top: 306.5px;" data-block-id="c3c5ff94ff04db11170f60d0a54da424" data-name="text-1eb171">
+								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; color: rgb(255, 255, 255);" data-fragment-index="0">
+									<p>Convenient way to add or remove URIs/textual values from the repository</p>
+								</div>
+							</div>
+						</section>
+						<section>
+							<div class="sl-block" data-block-type="text" style="width: 806px; left: 77px; top: 181.25px; height: auto;">
+								<div class="sl-block-content" style="z-index: 10; color: rgb(147, 196, 125);">
+									<h2>Thanks!</h2>
+								</div>
+							</div>
+							<div class="sl-block" data-block-type="text" style="height: auto; width: 677px; left: 141.5px; top: 293.75px;" data-name="text-8a782d">
+								<div class="sl-block-content" style="z-index: 11;">
+									<p>Tiffany&nbsp;Chan (tjychan@uvic.ca)</p>
+
+									<p>Code: <a href="https://github.com/UVicLibrary/fast_update" target="_blank">github.com/UVicLibrary/fast_update</a></p>
+
+									<p>Link to slides: <a href="https://uviclibrary.github.io/OR2023Dev" target="_blank">uviclibrary.github.io/OR2023Dev</a></p>
+
+									<p>&nbsp;</p>
+
+									<p>Slides made with <a href="https://slides.com/" target="_blank">slides.com</a> / <a href="https://revealjs.com/" target="_blank">reveal.js</a></p>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
