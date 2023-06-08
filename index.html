@@ -86,15 +86,15 @@
 									<p><span style="font-size:0.9em">Link to Slides: </span><a href="https://uviclibrary.github.io/OR2023Dev" target="_blank">uviclibrary.github.io/OR2023Dev</a></p>
 								</div>
 							</div>
-<!--							<aside class="notes">-->
-<!--								<ul>-->
-<!--									<li>The University of Victoria Libraries decided to change platforms for its digital collections in about 2018</li>-->
-<!--									<li>We migrated away from ContentDM to an open-source platform called Hyku, which is maintained by the Samvera community</li>-->
-<!--									<li>At the same time, we decided to use FAST for several of our metadata fields</li>-->
-<!--									<li>FAST heavily relies on URIs (Uniform Resource Identifiers), which meant that we had to convert textual values from ContentDM into URIs for Vault</li>-->
-<!--									<li>I won't go into detail about the metadata migration, but my colleagues and I recently wrote an article on the migration and implementation of FAST so check that out if you're interested</li>-->
-<!--								</ul>-->
-<!--							</aside>-->
+							<aside class="notes">
+								<ul>
+									<li>The University of Victoria Libraries decided to change platforms for its digital collections in about 2018</li>
+									<li>We migrated away from ContentDM to an open-source platform called Hyku, which is maintained by the Samvera community</li>
+									<li>At the same time, we decided to use FAST for several of our metadata fields</li>
+									<li>FAST heavily relies on URIs (Uniform Resource Identifiers), which meant that we had to convert textual values from ContentDM into URIs for Vault</li>
+									<li>I won't go into detail about the metadata migration, but my colleagues and I recently wrote an article on the migration and implementation of FAST so check that out if you're interested</li>
+								</ul>
+							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="text" style="height: auto; width: 425.5px; left: 18.5px; top: 273px;" data-name="text-7e9c6a" data-block-id="2b3990820b597d5d470ca7e8176bbfa4">
@@ -640,7 +640,8 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
-
+				width: 960,
+				height: 700,
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
 			});
