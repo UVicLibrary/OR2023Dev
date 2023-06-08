@@ -86,15 +86,6 @@
 									<p><span style="font-size:0.9em">Link to Slides: </span><a href="https://uviclibrary.github.io/OR2023Dev" target="_blank">uviclibrary.github.io/OR2023Dev</a></p>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>The University of Victoria Libraries decided to change platforms for its digital collections in about 2018</li>
-									<li>We migrated away from ContentDM to an open-source platform called Hyku, which is maintained by the Samvera community</li>
-									<li>At the same time, we decided to use FAST for several of our metadata fields</li>
-									<li>FAST heavily relies on URIs (Uniform Resource Identifiers), which meant that we had to convert textual values from ContentDM into URIs for Vault</li>
-									<li>I won't go into detail about the metadata migration, but my colleagues and I recently wrote an article on the migration and implementation of FAST so check that out if you're interested</li>
-								</ul>
-							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="text" style="height: auto; width: 425.5px; left: 18.5px; top: 273px;" data-name="text-7e9c6a" data-block-id="2b3990820b597d5d470ca7e8176bbfa4">
@@ -156,15 +147,6 @@
 									<line class="line-element" stroke="#ffffff" stroke-width="2" x1="0" y1="393" x2="0" y2="0"></line>
 								</svg></div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>Just to give some examples of what I mean by textual values and URIs:</li>
-									<li>Textual values are what we're usually familiar with when most people imagine metadata, where people and concepts are represented with strings of text</li>
-									<li>Although they're human-readable, there can be quite a bit of variation</li>
-									<li>By contrast, URIs (Uniform Resource Identifiers) are uniquely identifiable and also machine-readable</li>
-									<li>For human readability, we have controlled labels, which can be fetched via APIs or various code libraries like the ActiveTriples gem</li>
-								</ul>
-							</aside>
 						</section>
 						<section data-auto-animate-duration="1.6" data-auto-animate="" data-auto-animate-easing="ease-in">
 							<div class="sl-block" data-block-type="code" data-name="code-d4a723" data-block-id="2a2237aa30a7d4999a2f4b10c3336d3a" style="width: 463.36px; height: 305px; left: 0px; top: 266.75px;">
@@ -208,13 +190,6 @@
 									<p><span style="font-size:0.9em">displayed in the interface</span></p>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>Hyku and other Hyrax-based applications index both URIs and labels in its metadata indexing software, which is typically Apache Solr</li>
-									<li>In our instance of Hyku, we display human-readable labels in the interface for people browsing our site</li>
-									<li>This would all be well and good if FAST contained every value we need and stayed the same, but of course reality is different...</li>
-								</ul>
-							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 858.351px; left: 50.8245px; top: 273.75px;">
@@ -250,14 +225,6 @@
 									<p>When FAST approves our request, we need to replace the textual values with the new URI(s)</p>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>FAST is based on Library of Congress subject headings so there's a bias towards American topics and subject matter</li>
-									<li>Many of our collections are about local people and things, so there aren't existing URIs already assigned to those concepts</li>
-									<li>In these cases, metadata staff enter metadata as textual values first, and then submit a request to OCLC to create URIs for them</li>
-									<li>If FAST approves the request, which they generally do, we need to go back into the system to replace textual values with the newly minted URIs</li>
-								</ul>
-							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 858.351px; left: 50.8245px; top: 273.75px;">
@@ -270,11 +237,6 @@
 									<h3><span style="font-size:0.9em">Existing URIs can still change</span></h3>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>However, even existing URIs sometimes change...</li>
-								</ul>
-							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 700px; left: 127.5px; top: 70px;">
@@ -374,30 +336,11 @@
 									<p>There is no API (at least not yet)</p>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>These changes need to be reconciled with existing metadata in the repository</li>
-									<li>There are a few factors that make this process difficult in Hyrax</li>
-									<li>1) OCLC doesn't tell you when they've added a URI that you requested</li>
-									<li>2) OCLC publishes a list of changes in MARC format which other systems can use to update automatically, but Hyrax isn't one of them</li>
-									<li>There isn't an API for FAST changes, so I can't, say, send a request for all FAST Changes in the last month in JSON</li>
-									<li>Lastly, if you have more than one controlled vocabulary field, it's hard to search multiple fields for the same value at the same time</li>
-									<li>So even when our metadata staff have identified which textual value or URI needs to be changed, it's not easy for them to identify exactly which items they need to update in our repository</li>
-								</ul>
-							</aside>
 						</section>
 						<section>
 							<div class="sl-block" data-block-type="image" style="width: 907.824px; height: 700px; left: 26.088px; top: 0px;" data-name="image-4bee4b">
 								<div class="sl-block-content" style="z-index: 10;"><img class="" data-natural-width="1210" data-natural-height="933" data-lazy-loaded="" data-src="media/fast_changes.jpg"></div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>This is how OCLC communicates FAST Changes</li>
-									<li>The list of links you see under the Date column are links to Microsoft Excel spreadsheets that describe any changes</li>
-									<li>Those spreadsheets often have a large number of rows that need to be sorted through manually (e.g. 2439 records, 1648 records)</li>
-									<li>Since it's so time-consuming to update manually, the metadata staff at our library asked if I could come up with a solution to this problem</li>
-								</ul>
-							</aside>
 						</section>
 							<section>
 								<div class="sl-block" data-block-type="text" data-name="text-029cd8" style="height: auto; width: 811.412px; left: 77.9233px; top: 140px;">
@@ -422,14 +365,6 @@
 										<p>Parse the spreadsheets and categorize changes according to type (New heading, modified heading, obsolete/deprecated, split)</p>
 									</div>
 								</div>
-								<aside class="notes">
-									<ul>
-										<li>I created something I'm calling the FAST Updater. This is what it does:</li>
-										<li>It goes to the FAST Changes webpage I showed you earlier and downloads spreadsheets within a certain date range</li>
-										<li>Then it parses each spreadsheet and sorts rows into the different categories of changes that I mentioned before</li>
-										<li>And it does all this according to a pre-defined schedule. Right now I set it to run every once a month using Hyrax's job queuing software, called Sidekiq</li>
-									</ul>
-								</aside>
 							</section>
 						<section class="stack">
 							<section>
@@ -452,13 +387,6 @@
 										<p><span style="font-size:1.0em">Search the repository for the URI and reindex affected items, using Hyrax (and associated gems) to fetch and index the updated label</span></p>
 									</div>
 								</div>
-								<aside class="notes">
-									<ul>
-										<li>Some of these changes can be fully automated</li>
-										<li>For new headings, FAST Updater searches the repository for items with fields containing the textual value and replaces them with the URI</li>
-										<li>For modified headings, it searches the repository for items with fields using a specific URI, then it reindexes those items so that Hyrax will fetch and reindex the new label</li>
-									</ul>
-								</aside>
 							</section>
 							<section>
 								<div class="sl-block" data-block-type="code" data-name="code-d4a723" style="width: 446.299px; height: 207.946px; left: 16.8501px; top: 320.757px;">
@@ -570,13 +498,6 @@
 									<p>Staff can use a custom interface to search for and replace the old URI with new one(s)</p>
 								</div>
 							</div>
-							<aside class="notes">
-								<ul>
-									<li>However, updates for deprecated or split headings can't be fully automated because you need to choose the new heading to replace the old one with</li>
-									<li>In this case, FAST Updater emails a configured address describing the change and suggestions, if any</li>
-									<li>Then staff use a custom interface to search for and replace the old URI</li>
-								</ul>
-							</aside>
 						</section>
 						<section data-background-video="media/dashboard.mp4"></section>
 						<section data-background-video="media/search_preview.mp4"></section>
