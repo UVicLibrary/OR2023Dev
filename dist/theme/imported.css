@@ -14,3 +14,7 @@
 .reveal a {
     text-decoration: underline;
 }
+
+.reveal a.no-underline {
+    text-decoration: none;
+}
