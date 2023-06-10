@@ -90,7 +90,7 @@
 								<ul>
 									<li>The University of Victoria Libraries decided to change platforms for its digital collections in about 2018</li>
 									<li>We migrated away from ContentDM to an open-source platform called Hyku, which is maintained by the Samvera community</li>
-									<li>At the same time, we decided to use FAST for several of our metadata fields</li>
+									<li>At the same time, we decided to use FAST for 6 of our metadata fields (mainly Subject, Creator, Contributor)</li>
 									<li>FAST heavily relies on URIs (Uniform Resource Identifiers), which meant that we had to convert textual values from ContentDM into URIs for Vault</li>
 									<li>I won't go into detail about the metadata migration, but my colleagues and I recently wrote an article on the migration and implementation of FAST so check that out if you're interested</li>
 								</ul>
@@ -159,10 +159,11 @@
 							<aside class="notes">
 								<ul>
 									<li>Just to give some examples of what I mean by textual values and URIs:</li>
-									<li>Textual values are what we're usually familiar with when most people imagine metadata, where people and concepts are represented with strings of text</li>
-									<li>Although they're human-readable, there can be quite a bit of variation</li>
+									<li>Textual values are how many non-experts read/experience metadata, where people and concepts are represented directly with strings of text</li>
+									<li>We had textual values in our old system, ContentDM, that were mostly created on an ad-hoc basis</li>
+									<li>Although they're human-readable, there can be quite a bit of , which can make them somewhat ambiguous or inconsistent</li>
 									<li>By contrast, URIs (Uniform Resource Identifiers) are uniquely identifiable and also machine-readable</li>
-									<li>For human readability, we have controlled labels, which can be fetched via APIs or various code libraries like the ActiveTriples gem</li>
+									<li>For human readability, we have controlled labels attached to their identifiers, which can be fetched via APIs or various code libraries like the ActiveTriples gem</li>
 								</ul>
 							</aside>
 						</section>
@@ -241,7 +242,7 @@
 								</div>
 							</div>
 							<div class="sl-block" data-block-type="text" style="height: auto; width: 902px; left: 29px; top: 285.5px;" data-block-id="ccf2342e70df29b5db1d83fafa2825b0" data-name="text-89ef6c">
-								<div class="sl-block-content fragment" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
+								<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-fragment-index="0">
 									<p>Many of our subjects/metadata are of especially local interest, so they don't already exist in FAST</p>
 								</div>
 							</div>
@@ -291,10 +292,10 @@
 								<div class="sl-block-content sl-block-group-content" style="transform-origin: 480px 299.5px; z-index: 12;">
 									<div class="sl-block" data-block-type="text" data-name="text-1e46e8" style="height: auto; width: 600px; left: 140px; top: 280px;">
 										<div class="sl-block-content fragment" style="z-index: 13;" data-fragment-index="0">
-											<p>Elizabeth II, Queen of Great Britain, 1926 -</p>
+											<p>Pelé, 1940 -</p>
 										</div>
 									</div>
-									<div class="sl-block" data-block-type="text" style="height: auto; width: 92px; left: 728px; top: 280px;" data-name="text-e55818">
+									<div class="sl-block" data-block-type="text" style="height: auto; width: 92px; left: 516px; top: 280px;" data-name="text-e55818">
 										<div class="sl-block-content fragment" style="z-index: 14; color: rgb(147, 196, 125);" data-fragment-index="0">
 											<p>2022</p>
 										</div>
